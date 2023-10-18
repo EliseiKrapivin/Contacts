@@ -6,7 +6,8 @@ from .forms import ContactForm
 
 class ContactAdd(CreateView):
     model = Contact
-    template_name = 'contacts/post_list.html'
+    template_name = 'contacts/contact_edit.html'
+    form_class = ContactForm
     
     """def form_valid(self, form):
         feilds = form.save(commit=False)
@@ -22,10 +23,10 @@ class ContactAdd(CreateView):
 
 class ContactList(ListView):
     model = Contact
-    template_name = 'contacts/post_list.html'
+    template_name = 'contacts/contact_list.html'
     context_object_name = 'contacts'
 
 class ContactView(DetailView):
     model = Contact
-    template_name = 'contacts/post_list.html'
+    template_name = 'contacts/contact_list.html'
     form_class = ContactForm
