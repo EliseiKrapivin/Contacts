@@ -1,6 +1,8 @@
 from django.views.generic import ListView
 from .models import Contact
-from django.views.generic.edit import CreateView
+from django.views.generic import CreateView
+from django.views.generic import DetailView
+from .forms import ContactForm
 
 class ContactAdd(CreateView):
     model = Contact
@@ -24,7 +26,7 @@ class ContactList(ListView):
     template_name = 'contacts/post_list.html'
     context_object_name = 'contacts'
 
-class ContactView(ListView):
+class ContactView(DetailView):
     model = Contact
     template_name = 'contacts/post_list.html'
-    context_object_name = 'contacts'
+    form_class = ContactForm

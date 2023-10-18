@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Contact(models.Model):
     second_name = models.CharField(max_length=10)
@@ -11,3 +12,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url (self):
+        return reverse ('post_detail', args=[str(self.id)])
